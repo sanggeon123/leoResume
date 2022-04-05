@@ -21,12 +21,12 @@
         /* nav */
         .header{width: 100%; height: 100px;
             position: fixed; z-index: 9999;}
-        .logo{float: left; margin: 20px 0 0 20px;
-            width: 400px; height: 80px; color: white;
+        .logo{float: left; margin: 10px 0 0 20px;
+            width: 400px; height: 80px; color: black;
             font-size: 40px; font-weight: 900;}
-        .nav{float: right; margin: 30px 10px 0 0;}
+        .nav{float: right; margin: 20px 10px 0 0;}
         .nav li{float: left; margin-right: 50px;}
-        .nav a{font-size: 30px; font-weight: 600; color:white;}
+        .nav a{font-size: 30px; font-weight: 600; color:black;}
 
         /* main */
         .home_in{margin: 0 auto; width: 100%; height: 100vh;}
@@ -38,25 +38,7 @@
         .home_in > img{width: 100%; height: 100vh;}
 
         /* about */
-        .profile_in{margin: 0 auto; width: 1500px; height: 100vh;}
-        .profile_in > h1{text-align: center; font-size: 80px;
-            line-height: 300px;}
-        .profile_in > .about{display: flex; justify-content: space-between;
-            flex-wrap: wrap;}
-        .about > div > p{font-weight: bold;}
-        .about > div > span{font-weight: normal;}
-        .about > .name{width: 500px; height: 100px;
-            text-align: center;}
-        .about > .university{width: 700px; height: 100px;
-            text-align: center;}
-        .about > .birth{margin-top: 120px; width: 500px; height: 100px;
-            text-align: center;}
-        .about > .academy{margin-top: 100px; width: 700px; height: 100px;
-            text-align: center;}
-        .about #attr1{font-size: 40px;}
-        .about #spa1{font-size: 30px;}
-        .about #attr2{font-size: 40px;}
-        .about #spa2{font-size: 20px;}
+        .profile_in > img{width: 100%; height: 100vh;}
 
         /* skills */
         .skills_in{margin: 0 auto; width: 1500px; height: 100vh;}
@@ -64,9 +46,16 @@
             line-height: 220px;}
         .skills_in > div{position: relative; padding: 15px;
             display: block;}
-        .skills_in .image{display: flex; justify-content: space-around;}
-        .skills_in .percent{margin-top: 15px;
+        .skills_in .percent{margin-top: 30px;
             display: flex; justify-content: space-around;}
+        .skills_in .skills_list{margin-top: 30px; display: flex; justify-content: space-around;}
+        .skills_in .skills_list > span{font-size: 80px; font-weight: bold;}
+        .skills_list .skills_html{padding-left: 40px;}
+        .skills_list .skills_css{padding-left: 100px;}
+        .skills_list .skills_jquery{padding-left: 90px;}
+        .skills_list .skills_javascript{padding-right: 50px;}
+        .skills_list .skills_node{padding-right: 150px;}
+        .skills_list .skills_react{padding-right: 100px;}
         .chart{position: relative; width: 100px; height: 100px;
             border-radius: 50%; transition: 0.3s;}
         span.center{background: #fff; display: block;
@@ -75,18 +64,23 @@
             border-radius: 50%; text-align: center;
             line-height: 80px; font-size: 20px;
             transform: translate(-50%, -50%);}
-        .skills_in img{width: 140px; height: 140px;}
 
-        /* portfolio */
-        .project_in{position: relative; width: 1500px; height: 100vh;
-            margin: 0 auto; overflow: hidden;}
-        .project_in > ul{position: relative; float: left;
-            width: 100%; height: 1000px;}
-        .project_in > ul > li{position: absolute; width: 100%; height: 1000px;}
-        .project_in > ul > li > a{display: block; text-indent: -9999px;}
-        .project_in .project1{left: 0px; background: url("./images/project1.png") 50% 0 no-repeat;}
-        .project_in .project2{left: 100%; background: url("./images/project1.png") 50% 0 no-repeat;}
-        .project_in .project3{left: 200%; background: url("./images/project1.png") 50% 0 no-repeat;}
+        /* portfolio-project1 */
+        .project_1_in{display: flex; justify-content: center; align-items: center;
+            position: relative; width: 1300px; height: 100vh;
+            margin: 0 auto; overflow: hidden; left: 0%;}
+        .project_1_in > .project_list{position: relative; float: left;
+            width: 1300px; display: flex; justify-content: center; align-items: center;}
+        .project_1_in > .project_list > li{float: left; width: 650px; height: 700px;
+            border: 1px solid #000; box-sizing: border-box;}
+        .project_1_in .output{background: url(./images/comter.png) no-repeat 0 100px;
+            background-size: 100%;}
+        .project_1_in .output > div{width: 615px; height: 308px; border: 1px solid #000;
+            box-sizing: border-box; margin: 118px auto 0 auto;}
+        .project_1_in .account > div{margin: 100px auto 0 auto; padding: 20px; text-align: center; width: 600px; height: 500px;
+            background-color: white; line-height: 50px;}
+        .project_1_in .account > div span{font-size: 30px;}
+        .project_1_in .account > div a{display: block; margin-top: 50px; font-size: 30px; text-decoration: underline;}
 
         .arrow{position: relative; float: left; border: 1px solid #000;
             width: 100px; height: 100px; margin-right: 5px;}
@@ -113,10 +107,12 @@
             text-align: center;}
         .contact_in{margin: 0 auto; width: 1500px; height: 100vh;}
         .contact_in > h1{text-align: center; font-size: 80px;
-            line-height: 300px;}
-        .my > div{margin-top: 10px; font-size: 25px; text-align: center;}
-        .contact_in img{width: 90px; height: 90px;
+            line-height: 200px;}
+        .info > ul{display: flex; justify-content: space-around; flex-wrap: wrap;}
+        .info > ul > li{margin: 70px; width: 500px; height: 200px;}
+        .info > ul > li > img{width: 130px; height: 130px;
             text-align: center;}
+        .info > ul > li > p{font-size: 50px; font-weight: bold;}
 
         .contact_in > .top_btn{position: absolute;
             bottom: 0; right: 0; font-size: 20px;
@@ -147,28 +143,7 @@
         <!-- about -->
         <div id="profile">
             <div class="profile_in">
-                <h1>About Me</h1>
-                <div class="about">
-                    <div class="name">
-                        <p id="attr1">이름</p>
-                        <span id="spa1">박상건</span>
-                    </div>
-                    <div class="university">
-                        <p id="attr2">학력</p>
-                        <span id="spa2">2016.03 - 2022.02 동아대학교 경영학과(주전공)</span><br>
-                        <span id="spa2">2018.03 - 2022.02 동아대학교 체육학과(복수전공)</span>
-                    </div>
-                    <div class="birth">
-                        <p id="attr1">생년월일</p>
-                        <span id="spa1">1994.09.25</span>
-                    </div>
-                    <div class="academy">
-                        <p id="attr2">수료내용</p>
-                        <span id="spa2">2021.09 코리아 IT 아카데미(python1) 수료</span><br>
-                        <span id="spa2">2021.10코리아 IT 아카데미(Java1) 수료</span><br>
-                        <span id="spa2">2021.11 - 2022.04 코리아 IT 아카데미(웹 프론트엔드) 수료</span>
-                    </div>
-                </div>
+                <img src="./images/about.png" alt="about">
             </div>
         </div>
         <!-- skills -->
@@ -176,38 +151,47 @@
             <div class="skills_in">
                 <h1>I Can Do</h1>
                 <div id="skills_top">
-                    <div class="image">
-                        <img src="images/html640.png" alt="html">
-                        <img src="images/css640.png" alt="css">
-                        <img src="images/jquery640.png" alt="jquery">
-                    </div>
                     <div class="percent">
                         <div class="chart dough1"><span class="center">80%</span></div>
                         <div class="chart dough2"><span class="center">80%</span></div>
                         <div class="chart dough3"><span class="center">70%</span></div>
                     </div>
+                    <div class="skills_list">
+                        <span class="skills_html">HTML</span>
+                        <span class="skills_css">CSS</span>
+                        <span class="skills_jquery">JQUERY</span>
+                    </div>
                 </div>
                 <div id="skills_btm">
-                    <div class="image">
-                        <img src="images/JavaScript Logo.png" alt="javascript">
-                        <img src="images/node-js640.png" alt="nodejs">
-                        <img src="images/reactjs.png" alt="react">
-                    </div>
                     <div class="percent">
                         <div class="chart dough4"><span class="center">70%</span></div>
                         <div class="chart dough5"><span class="center">60%</span></div>
                         <div class="chart dough6"><span class="center">70%</span></div>
+                    </div>
+                    <div class="skills_list">
+                        <span class="skills_javascript">JAVASCRIPT</span>
+                        <span class="skills_node">NODE.JS</span>
+                        <span class="skills_react">REACT</span>
                     </div>
                 </div>
             </div>
         </div>
         <!-- portfolio -->
         <div id="project">
-            <div class="project_in">
-                <ul>
-                    <li class="project1"><a href="#">배너이미지 1</a></li>
-                    <li class="project2"><a href="#">배너이미지 2</a></li>
-                    <li class="project3"><a href="#">배너이미지 3</a></li>
+            <div class="project_1_in">
+                <ul class="project_list">
+                    <li class="output">
+                        <div><img src="./images/project1.png" width="100%" height="100%" alt="project1"></div>
+                    </li>
+                    <li class="account">
+                        <div>
+                            <h1>개인 포트폴리오</h1>
+                            <p>작업기간 : <span>2022-04-01 ~ 2022-04-05</span></p>
+                            <p>작업요점 : <span>저의 개인 포트폴리오이며 Jquery, JavaScript를 이용하여 nav 클릭시 화면이동, 스크롤에 의한 그래프 움직임 등을 구현하였습니다.</span></p>
+                            <p>사용기술 : <span>HTML, CSS, JQUERY, JAVASCRIPT</span></p>
+                            <a href="">코드보기</a>
+                        </div>
+                    </li>
                 </ul>
             </div>
             <span class="arrow arrow_prev"></span>
@@ -222,23 +206,25 @@
         <div id="contact">
             <div class="contact_in">
                 <h1>Contact Me</h1>
-                <div class="my">
-                    <div>
-                        <img src="images/me.png">
-                        <p>박상건<br>Park Sang Geon</p>
-                    </div>
-                    <div>
-                        <img src="images/phone.png">
-                        <p>+82-10-9661-6462</p>
-                    </div>
-                    <div>
-                        <img src="images/mail.png">
-                        <p>psg6462@gmail.com</p>
-                    </div>
-                    <div>
-                        <img src="images/blog.png">
-                        <p><a href="https://blog.naver.com/bark6462" target="_blank">Naver Blog</a></p>
-                    </div>
+                <div class="info">
+                    <ul>
+                        <li>
+                            <img src="images/me.png">
+                            <p>박상건<br>Park Sang Geon</p>
+                        </li>
+                        <li>
+                            <img src="images/phone.png">
+                            <p>+82-10-9661-6462</p>
+                        </li>
+                        <li>
+                            <img src="images/mail.png">
+                            <p>psg6462@gmail.com</p>
+                        </li>
+                        <li>
+                            <img src="images/blog.png">
+                            <p><a href="https://blog.naver.com/bark6462" target="_blank">Naver Blog</a></p>
+                        </li>
+                    </ul>
                 </div>
                 <a href="#home" class="top_btn">Top</a>
             </div>
@@ -316,7 +302,6 @@
         makeChart(60, chart5, '#00C928');
         makeChart(70, chart6, '#00D6DD');
 
-
         // portfolio
         $(document).ready(function(){
             var current = 0;
@@ -353,8 +338,8 @@
             function move(n){
                 if(current == n) return;
 
-                var currentEl = $(".project_in > ul > li").eq(current);
-                var nextEl = $(".project_in > ul > li").eq(n);
+                var currentEl = $(".project_in > div").eq(current);
+                var nextEl = $(".project_in > div").eq(n);
 
                 currentEl.css({left:"0%"}).animate({left:"-100%"});
                 nextEl.css({left:"100%"}).animate({left:"0%"});
@@ -364,8 +349,8 @@
             function move2(n){
                 if(current == n) return;
 
-                var currentEl = $(".project_in > ul > li").eq(current);
-                var nextEl = $(".project_in > ul > li").eq(n);
+                var currentEl = $(".project_in > div").eq(current);
+                var nextEl = $(".project_in > div").eq(n);
 
                 currentEl.css({left:"0%"}).animate({left:"-100%"});
                 nextEl.css({left:"100%"}).animate({left:"0%"});
