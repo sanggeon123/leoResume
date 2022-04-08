@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{ margin: 0; padding: 0;}
+        ul,li{list-style: none;}
+        a{text-decoration: none;}
+
+        #wrap{width:100%}
+        #wrap > div{ width: 100%; height:100vh}
+        #wrap > div:nth-child(1){background-color: burlywood;}
+        /* #wrap > div:nth-child(2){background-color: rgb(221, 222, 135);} */
+        #wrap > div:nth-child(3){background-color: white;}
+        #wrap > div:nth-child(4){background-color: white;}
+        #wrap > div:nth-child(5){background-color: #FF9CEE;}
+
+        /* nav */
+        .header{width: 100%; height: 80px;
+            position: fixed; z-index: 9999;
+            background-color: rgba(255, 255, 255, 0.3); 
+            }
+        .logo{float: left; margin: 6px 0 0 150px;
+            width: 400px; height: 80px; color: black;
+            font-size: 40px; font-weight: 900;}
+        .nav{float: right; margin: 25px 150px 0 0;}
+        .nav li{float: left; margin-right: 50px;}
+        .nav a{font-size: 20px; font-weight: 600; color:rgb(79, 79, 79);}
+
+        /* main */
+        .home_in{margin: 0 auto; width: 100%; height: 100vh;}
+        .home_in > div{display: flex;
+            justify-content: center; align-items: center;
+            height: 100px; font-size: 3rem; position: absolute;
+            top: 320px; left: 1000px; margin-top: 150px;
+            color: white; font-weight: bold; z-index: 9999;}
+        .home_in > img{width: 100%; height: 100vh;}
+
+        /* about */
+        .profile_in{margin: 0 auto; width: 1500px; height: 100vh;}
+        .profile_in > img{width: 100%; height: 100vh;}
+
+        /* skills */
+        .skills_in{margin: 0 auto; width: 1500px; height: 100vh; background-color: #86E851;}
+        .skills_in > h1{text-align: center; font-size: 80px;
+            line-height: 230px; color: #FA34FA;}
+        .skills_in > div{display: flex; justify-content: center;}
+        .skills_in > div > ul{width: 1000px; margin-top: 50px; display: flex; justify-content: space-between;}
+        .skills_in > div > ul > li{width: 200px; float: left; margin-bottom: 50px; text-align: center;}
+        .skills_in > div > ul > li > div{left: 25%; margin-bottom: 20px;}
+        .skills_in > div > ul > li > p{font-size: 30px; font-weight: bold; color: white;}
+        
+        .chart{position: relative; width: 100px; height: 100px;
+            border-radius: 50%; transition: 0.3s;}
+        span.center{background: #fff; display: block;
+            position: absolute; top: 50%; left: 50%;
+            width: 80px; height: 80px;
+            border-radius: 50%; text-align: center;
+            line-height: 80px; font-size: 20px;
+            transform: translate(-50%, -50%);}
+
+        /* portfolio */
+        .project_in{width: 1300px; height: 100vh; margin: 0 auto; overflow: hidden;}
+        .project_in .project_list{position: relative; width: 1300px;  height: 850px;
+            display: flex; justify-content: space-between;}
+        .project_in .project_list > li{width: 1300px; padding: 130px 0 0 20px; height: 700px; position: absolute; top:0px;
+            display: flex; justify-content: space-between;}
+        .project_in .project_list > .project_1{left: 0%;}
+        .project_in .project_list > .project_2{left: 100%;}
+        .project_in .project_list > .project_3{left: 200%;}
+        .project_in .project_list > li > .output{width: 600px; height: 600px; background: url(./images/comter.png) no-repeat 0 100px;
+            background-size: 100%;}
+        .project_in .output > img{width: 575px; height: 285px;
+            box-sizing: border-box; margin: 117px auto 0 13px;}
+        .project_in .account{margin: 170px auto 0 auto; padding: 20px; width: 500px; height: 300px;
+            border-radius: 16px; background-color: white;}
+        .project_in .account > h1{font-size: 25px; line-height: 70px; text-align: center;}
+        .project_in .account p{font-size: 16px; line-height: 30px; font-weight: 700; color: rgb(173, 170, 170);}
+        .project_in .account span{font-size: 16px; line-height: 30px; font-weight: 600; color: #000;}
+        .project_in .account a{display: inline-block; margin: 30px 0 0 100px; font-size: 20px; text-decoration: underline; text-align: center;}
+
+        .arrow{position: relative; float: left; border: 1px solid #000;
+            width: 100px; height: 100px; margin-right: 5px;}
+        .arrow_prev::after{position: absolute; left: 35px; top: -500px; content: '';
+            width: 50px; height: 50px; border-top: 5px solid #000;
+            border-right: 5px solid #000; transform: rotate(225deg);
+            z-index: 9000; cursor: pointer;}
+        .arrow_next::after{position: absolute; left: 1700px; top: -500px; content: '';
+            width: 50px; height: 50px; border-top: 5px solid #000;
+            border-right: 5px solid #000; transform: rotate(45deg);
+            z-index: 9000; cursor: pointer;}
+        
+        #buttonList{display: flex;}
+        #buttonList::after{content: ''; display: block; clear: both;}
+        #buttonList li{background: url("./images/btnVisual.png") 0 -16px no-repeat;
+            width: 15px; height: 15px; float: left; position: relative;
+            left: 700px; bottom: 50px; overflow: hidden; margin: 0 5px;
+            cursor: pointer; z-index: 9000;}
+        #buttonList li.on{background-position: 0 0;}
+        #buttonList li a{display: block; text-indent: -9999px;}
+
+        /* contact */
+        #contact{background-color: grey; position: relative;
+            text-align: center;}
+        .contact_in{margin: 0 auto; width: 1500px; height: 100vh;}
+        .contact_in > h1{text-align: center; font-size: 80px; padding-top: 20px;
+            line-height: 200px;}
+        .info > ul{display: flex; justify-content: space-around; flex-wrap: wrap;}
+        .info > ul > li{margin: 70px; width: 500px; height: 200px;}
+        .info > ul > li > img{width: 90px; height: 90px;
+            text-align: center;}
+        .info > ul > li > p{font-size: 25px; font-weight: bold;}
+        .info_name, .info_mail{padding-left: 110px;}
+        .info_num, .info_blog{padding-right: 110px;}
+
+        .contact_in > .top_btn{position: absolute;
+            bottom: 0; right: 0; font-size: 20px;
+            color: white; cursor: pointer;}
+    </style>
+    <script src="js/jquery.js"></script>
+</head>
+<body>
+    <div id="wrap">
+        <!-- nav -->
+        <section class="header">
+            <h1 class="logo">sg' portfolio</h1>
+            <ul class="nav">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Profile</a></li>
+                <li><a href="#">Skills</a></li>
+                <li><a href="#">Project</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </section>
+        <!-- main -->
+        <div id="home">
+            <div class="home_in">
+                <div class="text"></div>
+                <img src="./images/main.png" alt="computer">
+            </div>
+        </div>
+        <!-- about -->
+        <div id="profile">
+            <div class="profile_in">
+                <img src="./images/about.png" alt="about">
+            </div>
+        </div>
+        <!-- skills -->
+        <div id="skills">
+            <div class="skills_in" >
+                <h1>I Can Do</h1>
+                <div id="skills_top">
+                    <ul>
+                        <li>
+                            <div class="chart dough1"><span class="center">80%</span></div>
+                            <p class="skills_html">HTML</p>
+                        </li>
+                        <li>
+                            <div class="chart dough2"><span class="center">80%</span></div>
+                            <p class="skills_css">CSS</p>
+                        </li>
+                        <li>
+                            <div class="chart dough3"><span class="center">70%</span></div>
+                            <p class="skills_jquery">JQUERY</p>
+                        </li>
+                    </ul>
+                </div>
+                <div id="skills_btm">
+                    <ul>
+                        <li>
+                            <div class="chart dough4"><span class="center">70%</span></div>
+                            <p class="skills_javascript">JAVASCRIPT</p>
+                        </li>
+                        <li>
+                            <div class="chart dough5"><span class="center">60%</span></div>
+                            <p class="skills_node">NODE.JS</p>
+                        </li>
+                        <li>
+                            <div class="chart dough6"><span class="center">70%</span></div>
+                            <p class="skills_react">REACT</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- portfolio -->
+        <div id="project">
+            <div class="project_in">
+                <ul class="project_list">
+                    <li class="project_1">
+                        <div class="output"><img src="./images/project1.png" width="100%" height="100%" alt="project1"></div>
+                        <div class="account">
+                                <h1>개인 포트폴리오</h1>
+                                <hr/><br/>
+                                <p>작업기간 : <span>2022-04-01 ~ 2022-04-05</span></p>
+                                <p>작업요점 : <span>저의 개인 포트폴리오이며 Jquery, JavaScript를 이용하여 <br/>nav 클릭시 화면이동, 버튼 클릭시 슬라이드 등을 구현하였습니다.</span></p>
+                                <p>사용기술 : <span>HTML, CSS, JQUERY, JAVASCRIPT</span></p>
+                                <a href="https://github.com/sanggeon123/leoResume" target="_blank">코드보기</a>
+                                <a href="https://sanggeon123.github.io/leoResume/" target="_blank">방문하기</a>
+                        </div>
+                    </li>
+                    <li class="project_2">
+                        <div class="output"><img src="./images/project2.png" width="100%" height="100%" alt="project2"></div>
+                        <div class="account">
+                                <h1>영화추천 페이지</h1>
+                                <hr/><br/>
+                                <p>작업기간 : <span>2022-03-30</span></p>
+                                <p>작업요점 : <span>ytx.ms에서 제공하는 API를 조회하여 가져오는 것으로 React를 이용하여 제작하였습니다.</span></p>
+                                <p>사용기술 : <span>HTML, CSS, React</span></p>
+                                <a href="">코드보기</a>
+                                <a href="">방문하기</a>
+                        </div>
+                    </li>
+                    <li class="project_3">
+                        <div class="output"><img src="./images/project3.png" width="100%" height="100%" alt="project3"></div>
+                        <div class="account">
+                                <h1>TodoList</h1>
+                                <hr/><br/>
+                                <p>작업기간 : <span>2022-04-02</span></p>
+                                <p>작업요점 : <span>React를 이용하여 만들고 styled-components, hook 함수 등을 이용하여 제작하였습니다.</span></p>
+                                <p>사용기술 : <span>HTML, CSS, React</span></p>
+                                <a href="">코드보기</a>
+                                <a href="">방문하기</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <span class="arrow arrow_prev"></span>
+            <span class="arrow arrow_next"></span>
+            <ul id="buttonList">
+                <li class="on"><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+            </ul>
+        </div>
+        <!-- contact -->
+        <div id="contact">
+            <div class="contact_in">
+                <h1>Contact Me</h1>
+                <div class="info">
+                    <ul>
+                        <li class="info_name">
+                            <img src="images/me.png">
+                            <p>박상건<br>Park Sang Geon</p>
+                        </li>
+                        <li class="info_num">
+                            <img src="images/phone.png">
+                            <p>+82-10-9661-6462</p>
+                        </li>
+                        <li class="info_mail">
+                            <img src="images/mail.png">
+                            <p>psg6462@gmail.com</p>
+                        </li>
+                        <li class="info_blog">
+                            <img src="images/blog.png">
+                            <p><a href="https://blog.naver.com/bark6462" target="_blank">Naver Blog</a></p>
+                        </li>
+                    </ul>
+                </div>
+                <a href="#home" class="top_btn">Top</a>
+            </div>
+        </div>
+    </div>
+    <script>
+        // click
+        $(function(){
+            var menu = $('.nav > li');
+            var contents = $('#wrap > div');  
+
+            $('.nav> li').click(function(event){
+                event.preventDefault();
+                
+                var tg = $(this);
+                var i = tg.index();
+                var tt = $('#wrap > div').eq(i).offset().top;
+                
+                $('html, body').stop().animate({scrollTop:tt});
+            });
+        });
+
+        // typing
+        const content = "안녕하세요! 내일 더 \n발전하는 프론트엔드\n개발자 박상건입니다.";
+        const text = document.querySelector(".text");
+        let i = 0;
+
+        function typing(){
+            let txt = content[i++];
+            text.innerHTML += txt=== "\n" ? "<br/>": txt;
+            if(i > content.length){
+                text.textContent = "";
+                i = 0;
+            }
+        }
+        setInterval(typing, 200);
+
+        // skills
+        const chart1 = document.querySelector('.dough1');
+        const chart2 = document.querySelector('.dough2');
+        const chart3 = document.querySelector('.dough3');
+        const chart4 = document.querySelector('.dough4');
+        const chart5 = document.querySelector('.dough5');
+        const chart6 = document.querySelector('.dough6');
+
+        const makeChart = (percent, classname, color) => {
+            let i = 1;
+            let chartFn = setInterval(function(){
+                if(i <= percent){
+                    colorFn(i, classname, color);
+                    i++;
+                }else{
+                    clearInterval(chartFn);
+                }
+            },10);
+        };
+
+        const colorFn = (i, classname, color) => {
+            classname.style.background = "conic-gradient(" + color + " 0% " + i + "%, #dedede " + i + "% 100%)";
+        }
+
+        const replay = () => {
+            makeChart(80, chart1, '#EF7F00');
+            makeChart(80, chart2, '#0083F7');
+            makeChart(70, chart3, '#00F731');
+            makeChart(70, chart4, '#EFF700');
+            makeChart(60, chart5, '#00C928');
+            makeChart(70, chart6, '#00D6DD');
+        }
+        
+        makeChart(80, chart1, '#EF7F00');
+        makeChart(80, chart2, '#0083F7');
+        makeChart(70, chart3, '#00F731');
+        makeChart(70, chart4, '#EFF700');
+        makeChart(60, chart5, '#00C928');
+        makeChart(70, chart6, '#00D6DD');
+
+        // portfolio
+        $(document).ready(function(){
+            var current = 0;
+            var setIntervalId;
+
+            // 인덱스버튼
+            $("#buttonList li").click(function(e){
+                e.preventDefault();
+
+                var i = $(this).index();
+                $("#buttonList li").removeClass("on");
+                $("#buttonList li").eq(i).addClass("on");
+
+                move(i);
+            });
+
+            // 화살표버튼
+            $(".arrow_prev").click(function(){
+                var n = current + 1;
+                if(n == 3){
+                    n = 0;
+                }
+                move(n);
+            });
+            $(".arrow_next").click(function(){
+                var n = current - 1;
+                if(n == -1){
+                    n = 2;
+                }
+                move2(n);
+            })
+
+            // 애니메이션 함수
+            function move(n){
+                if(current == n) return;
+
+                var currentEl = $(".project_in > ul > li").eq(current);
+                var nextEl = $(".project_in > ul > li").eq(n);
+
+                currentEl.css({left:"0%"}).animate({left:"-100%"});
+                nextEl.css({left:"100%"}).animate({left:"0%"});
+
+                current = n;
+            }
+            function move2(n){
+                if(current == n) return;
+
+                var currentEl = $(".project_in > ul > li").eq(current);
+                var nextEl = $(".project_in > ul > li").eq(n);
+
+                currentEl.css({left:"0%"}).animate({left:"100%"});
+                nextEl.css({left:"-100%"}).animate({left:"0%"});
+
+                current = n;
+            }
+        })
+    </script>
+</body>
+</html>
